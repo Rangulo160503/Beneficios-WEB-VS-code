@@ -2,6 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-::-webkit-scrollbar{
-    display: none;
+::-webkit-scrollbar {
+  display: none;
+}
+
+@layer components {
+  /* Estilo general para paneles principales */
+  .box-panel {
+    @apply bg-[#121212] text-white rounded-2xl shadow-md p-6;
+  }
+
+  /* Estilo específico para el Sidebar izquierdo */
+  .sidebar-panel {
+    @apply bg-black text-white rounded-2xl shadow-md p-4;
+  }
+
+  /* Estilo para el detalle del beneficio */
+  .benefit-sidebar {
+    @apply bg-white dark:bg-gray-900 text-black dark:text-white rounded-l-2xl shadow-xl p-6 border-l border-gray-300;
+  }
 }

@@ -1,13 +1,12 @@
 import { useBenefit } from "../context/BenefitContext";
 
-const BenefitDetailSidebar = () => {
+const RightSidebar = () => {
   const { selectedBenefit, setSelectedBenefit } = useBenefit();
 
   if (!selectedBenefit) return null;
 
   return (
     <div className="fixed top-0 right-0 w-[350px] h-full bg-[#121212] text-white px-6 pt-4 pb-6 rounded-l-lg overflow-auto z-50 border-l border-gray-700 shadow-2xl">
-      
       {/* Botón Cerrar */}
       <div className="text-right mb-4">
         <button
@@ -82,4 +81,4 @@ const BenefitDetailSidebar = () => {
   );
 };
 
-export default BenefitDetailSidebar;
+export default RightSidebar;
