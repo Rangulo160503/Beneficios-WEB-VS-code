@@ -5,7 +5,7 @@ const Sidebar = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="w-[100%] h-full p-2 flex-col gap-2 text-white hidden lg:flex">
+    <div className="w-[25%] h-full p-2 flex-col gap-2 text-white hidden lg:flex">
       {/* Navegación principal */}
       <div className="bg-[#121212] rounded h-[15%] flex flex-col justify-around shadow p-4">
         <div

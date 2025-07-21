@@ -6,33 +6,35 @@ const RightSidebar = () => {
   if (!selectedBenefit) return null;
 
   return (
-    <div className="fixed top-0 right-0 w-[350px] h-full bg-[#121212] text-white px-6 pt-4 pb-6 rounded-l-lg overflow-auto z-50 border-l border-gray-700 shadow-2xl">
-      {/* Botón Cerrar */}
+    <div className="w-[25%] h-full p-2 flex-col gap-2 text-white hidden lg:flex">
+        <div className="bg-[#121212] rounded h-[15%] flex flex-col justify-around shadow p-4">
+{/* Botón Cerrar */}
       <div className="text-right mb-4">
         <button
-          className="text-sm text-gray-400 hover:text-red-400 transition"
+          className="text-sm text-gray-100 hover:text-green-400 transition"
           onClick={() => setSelectedBenefit(null)}
         >
           ✖ Cerrar
         </button>
       </div>
-
-      {/* Imagen */}
+        </div>
+      
+<div className="bg-[#121212] rounded h-[15%] flex flex-col justify-around shadow p-4">
+        {/* Imagen */}
       {selectedBenefit.image && (
         <img
           src={selectedBenefit.image}
           className="w-full h-40 object-cover rounded mb-4"
           alt="benefit"
         />
-      )}
-
-      {/* Título */}
+      )}    
+        </div>
+      <div className="bg-[#121212] rounded h-[15%] flex flex-col justify-around shadow p-4">
+        {/* Título */}
       <h2 className="text-xl font-bold mb-2">{selectedBenefit.name}</h2>
-
-      {/* Descripción */}
+{/* Descripción */}
       <p className="text-sm text-gray-300 mb-4">{selectedBenefit.desc}</p>
-
-      {/* Detalles */}
+{/* Detalles */}
       <ul className="text-sm space-y-1 text-gray-400">
         {selectedBenefit.proveedor && (
           <li>
@@ -65,7 +67,6 @@ const RightSidebar = () => {
           </li>
         )}
       </ul>
-
       {/* QR */}
       {selectedBenefit.qr && (
         <div className="mt-6">
@@ -77,6 +78,15 @@ const RightSidebar = () => {
           />
         </div>
       )}
+      </div>
+
+      
+
+      
+
+      
+
+      
     </div>
   );
 };

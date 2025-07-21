@@ -25,7 +25,7 @@ const Display = () => {
   return (
     <div
       ref={displayRef}
-      className="mx-auto p-6 rounded bg-[#121212] text-white overflow-auto transition-all duration-300 w-full max-w-[1400px]"
+      className="mx-auto p-6 rounded bg-[#121212] text-white overflow-auto transition-all duration-300 w-full"
 
     >
       <Routes>

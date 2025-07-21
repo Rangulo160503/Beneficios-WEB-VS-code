@@ -1,5 +1,6 @@
 import Display from "./components/Display";
 import Sidebar from "./components/Sidebar";
+import RightSidebar from "./components/RightSidebar";
 import BenefitDetailSidebar from "./components/BenefitDetailSidebar";
 import { BenefitProvider } from "./context/BenefitContext";
 
@@ -17,7 +18,7 @@ const LayoutWithSidebar = () => {
       </div>
 
       {/* Mostrar sidebar de detalle solo si hay beneficio seleccionado */}
-      <Sidebar />
+      <RightSidebar />
     </div>
   );
 };
