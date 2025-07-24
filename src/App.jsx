@@ -3,21 +3,26 @@ import Sidebar from "./components/Sidebar";
 import RightSidebar from "./components/RightSidebar";
 import BenefitDetailSidebar from "./components/BenefitDetailSidebar";
 import { BenefitProvider } from "./context/BenefitContext";
+import { BenefitSearchProvider } from "./context/BenefitSearchContext"; // ← nuevo
+import React, { useState } from 'react';
 
 const LayoutWithSidebar = () => {
-  
+  const [modoSeleccion, setModoSeleccion] = useState(false);
+  const [seleccionados, setSeleccionados] = useState([]);
 
   return (
     <div className="h-screen bg-black flex overflow-hidden">
-      <Sidebar />
+      <Sidebar
+        modoSeleccion={modoSeleccion}
+        setModoSeleccion={setModoSeleccion}
+        seleccionados={seleccionados}
+        setSeleccionados={setSeleccionados}
+      />
 
-      {/* Área central que se ajusta si hay panel de detalle */}
-      <div
-      >
+      <div>
         <Display />
       </div>
 
-      {/* Mostrar sidebar de detalle solo si hay beneficio seleccionado */}
       <RightSidebar />
     </div>
   );
@@ -26,7 +31,9 @@ const LayoutWithSidebar = () => {
 const App = () => {
   return (
     <BenefitProvider>
-      <LayoutWithSidebar />
+      <BenefitSearchProvider> {/* Agregado */}
+        <LayoutWithSidebar />
+      </BenefitSearchProvider>
     </BenefitProvider>
   );
 };

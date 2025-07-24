@@ -7,29 +7,28 @@ const RightSidebar = () => {
 
   return (
     <div className="w-[25%] h-full p-2 flex-col gap-2 text-white hidden lg:flex">
-        <div className="bg-[#121212] rounded h-[15%] flex flex-col justify-around shadow p-4">
-{/* Botón Cerrar */}
-      <div className="text-right mb-4">
-        <button
-          className="text-sm text-gray-100 hover:text-green-400 transition"
-          onClick={() => setSelectedBenefit(null)}
-        >
-          ✖ Cerrar
-        </button>
-      </div>
-        </div>
+        <div
+  className="bg-[#121212] rounded h-[5%] flex flex-col justify-around shadow p-4 cursor-pointer hover:bg-[#1e1e1e] transition"
+  onClick={() => setSelectedBenefit(null)}
+>
+  Cerrar
+</div>
+
+
       
 <div className="bg-[#121212] rounded h-[15%] flex flex-col justify-around shadow p-4">
-        {/* Imagen */}
-      {selectedBenefit.image && (
-        <img
-          src={selectedBenefit.image}
-          className="w-full h-40 object-cover rounded mb-4"
-          alt="benefit"
-        />
-      )}    
+    {/* QR */}
+      {selectedBenefit.qr && (
+        <div className="mt-6">
+          <img
+            src={selectedBenefit.qr}
+            alt="QR"
+            className="w-32 h-32 object-contain"
+          />
         </div>
-      <div className="bg-[#121212] rounded h-[15%] flex flex-col justify-around shadow p-4">
+      )} 
+        </div>
+      <div className="bg-[#121212] rounded h-[100%] flex flex-col justify-around shadow p-4">
         {/* Título */}
       <h2 className="text-xl font-bold mb-2">{selectedBenefit.name}</h2>
 {/* Descripción */}
@@ -67,17 +66,7 @@ const RightSidebar = () => {
           </li>
         )}
       </ul>
-      {/* QR */}
-      {selectedBenefit.qr && (
-        <div className="mt-6">
-          <p className="font-semibold text-white mb-2">Código QR:</p>
-          <img
-            src={selectedBenefit.qr}
-            alt="QR"
-            className="w-32 h-32 object-contain"
-          />
-        </div>
-      )}
+      
       </div>
 
       
