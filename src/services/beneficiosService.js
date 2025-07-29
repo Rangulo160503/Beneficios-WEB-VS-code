@@ -1,19 +1,15 @@
-const API_BASE_URL = import.meta.env.PROD
-  ? "https://hr-beneficios-api-hxeshwbedrbndmc5.centralus-01.azurewebsites.net/api"
-  : "/api";
-
-console.log("¿Es producción?", import.meta.env.PROD);
-console.log("Llamando a:", `${API_BASE_URL}/Beneficio`);
+// beneficiosService.js
 
 export const fetchBeneficios = async () => {
   try {
-    const response = await fetch(`${API_BASE_URL}/Beneficio`);
+    const response = await fetch("/api/Beneficio"); // ✅ Relativa, activará el proxy de Vite
     if (!response.ok) {
-      throw new Error("Error al obtener beneficios");
+      throw new Error(`Error al obtener beneficios: ${response.status} ${response.statusText}`);
     }
-    return await response.json();
+    const data = await response.json();
+    return data;
   } catch (error) {
-    console.error("Error al cargar beneficios:", error);
+    console.error("🛑 Error al cargar beneficios:", error.message);
     return [];
   }
 };

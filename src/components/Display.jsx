@@ -3,7 +3,6 @@ import DisplayHome from "./DisplayHome";
 import DisplayAlbum from "./DisplayAlbum";
 import { useEffect, useRef } from "react";
 import { albumsData } from "../assets/assets";
-import { useBenefit } from "../context/BenefitContext";
 
 const Display = () => {
   const displayRef = useRef();
@@ -11,8 +10,6 @@ const Display = () => {
   const isAlbum = location.pathname.includes("album");
   const albumId = isAlbum ? location.pathname.slice(-1) : "";
   const bgColor = albumsData[Number(albumId)]?.bgColor || "#121212";
-
-  const { selectedBenefit } = useBenefit();
 
   useEffect(() => {
     if (isAlbum) {
@@ -25,9 +22,7 @@ const Display = () => {
   return (
     <div
       ref={displayRef}
-      className="rounded bg-[#121212] h-[100%] shadow text-white overflow-auto transition-all duration-300 w-full p-6"
-
-    >
+      className="rounded bg-[#121212] h-[100%] shadow text-white overflow-auto transition-all duration-300 w-full p-6">
       <Routes>
         <Route path="/" element={<DisplayHome />} />
         <Route path="/album/:id" element={<DisplayAlbum />} />
